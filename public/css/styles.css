@@ -22,31 +22,16 @@ main h2 {
 }
 
 main .container {
-    display: grid;
-    grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
-}
-
-main .container div {
-    grid-column: 1 / 2;
-    grid-row: 1 / 4;
-}
-
-main .title {
-    grid-column: 2 / 4;
-    grid-row: 1 / 2;
-}
-
-main .author {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
+    display: flex;
+    gap: 10px;
 }
 
 main .rating {
-    grid-column: 3 / 4;
-    grid-row: 2 / 3;
+    display: inline-block;
+    color: gray;
 }
 
-main .review {
-    grid-column: 2 / span 4;
-    grid-row: 3 
+main .rating .star.filled {
+    color: gold;
 }
+
