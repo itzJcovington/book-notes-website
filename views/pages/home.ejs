@@ -3,7 +3,7 @@
     <h2>Books</h2>
     <% books.forEach(book => { %>
         <div class="book-container">
-            <img src="https://covers.openlibrary.org/b/olid/<%= book.olid %>-M.jpg" alt="Book Cover" class="book-cover">
+            <img src="https://covers.openlibrary.org/b/olid/<%= book.olid %>-L.jpg" alt="Book Cover" class="book-cover">
             <div class="book-details">
                 <h3 class="book-title"><%= book.title %></h3>
                 <p class="book-author">by <%= book.author %></p>
@@ -17,8 +17,9 @@
                     <% } %>
                 </p>
                 <p class="review"><%= book.review %></p>
+                <p class="date">Added on: <%= book.date %></p>
             </div>
         </div>
-    <% }); >
+    <% }); %>
 </main>
-<%- include('../partials/footer') %>★★
+<%- include('../partials/footer') %>
