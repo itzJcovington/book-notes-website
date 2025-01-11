@@ -41,7 +41,11 @@ router.get('/', async (req, res) => {
             notes: book.notes || 'No notes available'
         }));
 
-        res.render('pages/home.ejs', { books });
+        res.render('pages/home.ejs', { 
+            books,
+            browserTitle: "Jake's Book Notes"
+         });
+         
     } catch (error) {
         console.error('Error fetching books:', error);
         res.status(500).send('Internal Server Error');

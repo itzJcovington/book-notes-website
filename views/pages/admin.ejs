@@ -1,0 +1,30 @@
+<%- include('../partials/head') %>
+    <body>
+        <main>
+            <h2>Books</h2>
+            <% books.forEach(book => { %>
+                <div class="book-container">
+                    <img src="https://covers.openlibrary.org/b/olid/<%= book.olid %>-L.jpg" alt="Book Cover" class="book-cover">
+                    <div class="book-details">
+                        <h3 class="book-title"><%= book.title %></h3>
+                        <p class="book-author">by <%= book.author %></p>
+                        <p class="rating">
+                            <% for (let i = 1; i <= 5; i++) { %>
+                                <% if (i <= book.rating) { %>
+                                    <span class="star filled">★</span>
+                                <% } else { %>
+                                    <span class="star">★</span>
+                                <% } %>
+                            <% } %>
+                        </p>
+                        <p class="review"><%= book.notes %></p>
+                        <p class="date">Added on: <%= book.date_read %></p>
+                        <div>
+                            <button onclick="window.location.href='/admin/edit/<%= book.id %>';">EDIT</button>
+                            <button>DELETE</button>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </main>
+<%- include('../partials/footer') %>

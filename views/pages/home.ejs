@@ -1,25 +1,38 @@
-<%- include('../partials/header') %>
-<main>
-    <h2>Books</h2>
-    <% books.forEach(book => { %>
-        <div class="book-container">
-            <img src="https://covers.openlibrary.org/b/olid/<%= book.olid %>-L.jpg" alt="Book Cover" class="book-cover">
-            <div class="book-details">
-                <h3 class="book-title"><%= book.title %></h3>
-                <p class="book-author">by <%= book.author %></p>
-                <p class="rating">
-                    <% for (let i = 1; i <= 5; i++) { %>
-                        <% if (i <= book.rating) { %>
-                            <span class="star filled">★</span>
-                        <% } else { %>
-                            <span class="star">★</span>
+<%- include('../partials/head') %>
+<body>
+    <header>
+        <h1>Jake's Book Notes</h1>
+        <nav>
+            <ul>
+                <li><a href="/?sort=title">Title</a></li>
+                <li><a href="/?sort=newest">Newest</a></li>
+                <li><a href="/?sort=oldest">Oldest</a></li>
+                <li><a href="/?sort=best">Best</a></li>
+                <li><a href="/?sort=worst">Worst</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Books</h2>
+        <% books.forEach(book => { %>
+            <div class="book-container">
+                <img src="https://covers.openlibrary.org/b/olid/<%= book.olid %>-L.jpg" alt="Book Cover" class="book-cover">
+                <div class="book-details">
+                    <h3 class="book-title"><%= book.title %></h3>
+                    <p class="book-author">by <%= book.author %></p>
+                    <p class="rating">
+                        <% for (let i = 1; i <= 5; i++) { %>
+                            <% if (i <= book.rating) { %>
+                                <span class="star filled">★</span>
+                            <% } else { %>
+                                <span class="star">★</span>
+                            <% } %>
                         <% } %>
-                    <% } %>
-                </p>
-                <p class="review"><%= book.notes %></p>
-                <p class="date">Added on: <%= book.formattedDate %></p>
+                    </p>
+                    <p class="review"><%= book.notes %></p>
+                    <p class="date">Added on: <%= book.formattedDate %></p>
+                </div>
             </div>
-        </div>
-    <% }); %>
-</main>
+        <% }); %>
+    </main>
 <%- include('../partials/footer') %>
