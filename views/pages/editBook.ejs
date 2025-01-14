@@ -1,0 +1,21 @@
+<%- include('../partials/head') %>
+    <body>
+        <header>
+            <h1>Edit Book: <%= book.title %></h1>
+            <a href="/admin/dashboard">Go Back</a>
+        </header>
+        <main>
+            <form method="POST" action="/admin/edit/<%= book.id %>">
+                <label for="date_read">Date Read:</label>
+                <input type="date" id="date_read" name="date_read" value="<%= book.formattedDate %>" required>
+
+                <label for="rating">Rating:</label>
+                <input type="number" id="rating" name="rating" value="<%= book.rating %>" min="0" max="5" required>
+
+                <label for="notes">Notes:</label>
+                <textarea id="notes" name="notes"><%= book.notes %></textarea>
+
+                <button type="submit">Save Changes</button>
+            </form>
+        </main>
+<%- include('../partials/footer') %>

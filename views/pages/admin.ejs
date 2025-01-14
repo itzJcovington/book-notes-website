@@ -18,7 +18,7 @@
                             <% } %>
                         </p>
                         <p class="review"><%= book.notes %></p>
-                        <p class="date">Added on: <%= book.date_read %></p>
+                        <p class="date">Added on: <%= book.formattedDate %></p>
                         <div>
                             <button onclick="window.location.href='/admin/edit/<%= book.id %>';">EDIT</button>
                             <button>DELETE</button>
