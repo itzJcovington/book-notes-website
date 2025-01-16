@@ -2,6 +2,7 @@
     <body>
         <main>
             <h2>Books</h2>
+            <a href="/admin/search">Add Book</a>
             <% books.forEach(book => { %>
                 <div class="book-container">
                     <img src="https://covers.openlibrary.org/b/olid/<%= book.olid %>-L.jpg" alt="Book Cover" class="book-cover">
@@ -21,10 +22,11 @@
                         <p class="date">Added on: <%= book.formattedDate %></p>
                         <div>
                             <button onclick="window.location.href='/admin/edit/<%= book.id %>';">EDIT</button>
-                            <button>DELETE</button>
+                            <button onclick="confirmDelete('<%= book.id %>')">DELETE</button>
                         </div>
                     </div>
                 </div>
             <% }); %>
         </main>
+        <script src="/js/confirmDelete.js"></script>
 <%- include('../partials/footer') %>

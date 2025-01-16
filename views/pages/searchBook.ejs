@@ -1,0 +1,31 @@
+<%- include('../partials/head') %>
+<body>
+    <main>
+        <h2>Search</h2>
+        <form method="GET" action="/admin/search">
+            <input type="text" name="query" placeholder="Enter book name..." required>
+            <button type="submit">Search</button>
+        </form>
+        <% if (books && books.length > 0) { %>
+            <div class="search-results">
+                <% books.forEach(book => { %>
+                    <div class="book-container">
+                        <img src="https://covers.openlibrary.org/b/olid/<%= book.olid %>-L.jpg" alt="Book Cover" class="book-cover">
+                        <div class="book-details">
+                            <h3 class="book-title"><%= book.title %></h3>
+                            <p class="book-author">by <%= book.author %></p>
+                            <form method="GET" action="/admin/add">
+                                <input type="hidden" name="title" value="<%= book.title %>">
+                                <input type="hidden" name="author" value="<%= book.author %>">
+                                <input type="hidden" name="olid" value="<%= book.olid %>">
+                                <button type="submit">Add</button>
+                            </form>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        <% } else if (query) { %>
+            <p>No books found for "<%= query %>".</p>
+        <% } %>
+    </main>
+<%- include('../partials/footer') %>

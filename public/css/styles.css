@@ -33,6 +33,18 @@ main h2 {
 
 main {
     flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+main a {
+    display: block;
+    text-align: center;
+}
+
+main form {
+    text-align: center;
 }
 
 main .book-container {
